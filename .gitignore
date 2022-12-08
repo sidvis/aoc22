@@ -1,0 +1,6 @@
+*.txt
+*.ipynb
+*.pyc
+*.log
+pyenv/
+data/
