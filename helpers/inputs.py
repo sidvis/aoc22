@@ -46,6 +46,9 @@ class DataParser():
             assert self.check_len and (len(d) == self.len), "data length not matching parser"
             return tuple(c(x) for c,x in zip(self.constructor, d))
 
+    def parse_list(self, L):
+        return [self.parse_line(line) for line in L]
+
     def parse_data(self, data):
         return [self.parse_line(line) for line in data.data]
 
