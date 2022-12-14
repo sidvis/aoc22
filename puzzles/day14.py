@@ -64,10 +64,8 @@ class Cave():
         while not self.is_full:
             for grain in self.trace_grain():
                 if grain[1] == self.max_y+offset-1:
-                    self.rocks.add(grain)
                     break
-            else:
-                self.rocks.add(grain)
+            self.rocks.add(grain)
 
         return self.sand_level
 
