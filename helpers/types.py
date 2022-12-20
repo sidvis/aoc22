@@ -31,7 +31,7 @@ class MyRange():
 
     def overlap(self, other, check_valid=False):
         """
-        finds overlap with other ranges and return a new range
+        finds intersection with other ranges and return a new range
 
         check_valid = True will raise an AssertionError whenever the
                             resulting range is invalid (i.e. empty)
@@ -40,6 +40,16 @@ class MyRange():
         s = max(self.start, other.start)
         e = min(self.end, other.end)
         return MyRange(s,e,check_valid)
+    
+    def union(self, other, check_valid=False):
+        """
+        finds the union with other range and returns a new range
+        
+        """
+        o = self.overlap(other, check_valid)
+        s = min(self.start, other.start)
+        e = max(self.end, other.end)
+        return MyRange(s,e, check_valid)
 
     def fully_contains(self, other):
         """
